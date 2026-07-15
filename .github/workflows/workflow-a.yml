@@ -1,6 +1,7 @@
 name: Workflow A
 
 on:
+  workflow_dispatch:
   workflow_call:
     secrets:
       FAKE_TOKEN:
@@ -11,7 +12,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v7
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 20
+      - name: Cache dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: npm-cache
       - name: TESTING
         run: |
+          echo "TESTING"
           echo "FAKE_TOKEN=${{ secrets.FAKE_TOKEN }}"
-          
