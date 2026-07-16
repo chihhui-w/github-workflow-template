@@ -33,7 +33,7 @@ jobs:
 
     steps:
       - name: Resolve Slack Mentions
-        uses: actions/github-script@v9
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9
         env:
           SLACK_USERS: ${{ secrets.SLACK_USERS }}
         with:
@@ -70,4 +70,4 @@ jobs:
             }
 
       - name: Send Slack Notification
-        uses: jun3453/slack-pr-open-notification-action@v1.3.0
+        uses: jun3453/slack-pr-open-notification-action@fe4a6be204730358ffdecb4fc52405f4e67a371d # v1.3.0
